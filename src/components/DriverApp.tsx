@@ -1,43 +1,67 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Package, MapPin, Camera, CheckCircle2, Navigation, Clock } from 'lucide-react';
-import { DriverOrder } from '@/types/order';
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Package,
+  MapPin,
+  Camera,
+  CheckCircle2,
+  Navigation,
+  Clock,
+} from "lucide-react";
+import { DriverOrder } from "@/types/order";
 
 const mockOrders: DriverOrder[] = [
   {
-    id: 'ORD-1001',
-    items: [{ product: { id: '1', name: 'Mineral Water', type: 'Natural Mineral', price: 25000, image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80', description: '' }, quantity: 5 }],
+    id: "ORD-1001",
+    items: [
+      {
+        product: {
+          id: "1",
+          name: "Mineral Water",
+          type: "Natural Mineral",
+          price: 25000,
+          image:
+            "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80",
+          description: "",
+        },
+        quantity: 5,
+      },
+    ],
     subtotal: 125000,
     deliveryFee: 5000,
     total: 130000,
-    paymentMethod: 'cash',
-    status: 'driver-assigned',
+    paymentMethod: "cash",
+    status: "driver-assigned",
     createdAt: new Date(),
-    pickupLocation: 'Depot Sudirman - Jl. Sudirman No. 45',
-    deliveryLocation: 'PT. Maju Jaya - Jl. Gatot Subroto No. 123'
-  }
+    pickupLocation: "Depot Sudirman - Jl. Sudirman No. 45",
+    deliveryLocation: "PT. Maju Jaya - Jl. Gatot Subroto No. 123",
+  },
 ];
 
 export default function DriverApp() {
   const [orders, setOrders] = useState<DriverOrder[]>(mockOrders);
   const [selectedOrder, setSelectedOrder] = useState<DriverOrder | null>(null);
-  const [driverNotes, setDriverNotes] = useState('');
+  const [driverNotes, setDriverNotes] = useState("");
   const [proofUploaded, setProofUploaded] = useState(false);
 
   const handleAcceptOrder = (orderId: string) => {
-    setOrders(orders.map(o => 
-      o.id === orderId ? { ...o, status: 'en-route' as const } : o
-    ));
+    setOrders(
+      orders.map((o) =>
+        o.id === orderId ? { ...o, status: "en-route" as const } : o,
+      ),
+    );
   };
 
   const handlePickup = (orderId: string) => {
-    setOrders(orders.map(o => 
-      o.id === orderId ? { ...o, status: 'en-route' as const } : o
-    ));
+    setOrders(
+      orders.map((o) =>
+        o.id === orderId ? { ...o, status: "en-route" as const } : o,
+      ),
+    );
   };
 
   const handleUploadProof = () => {
@@ -45,11 +69,20 @@ export default function DriverApp() {
   };
 
   const handleCompleteDelivery = (orderId: string) => {
-    setOrders(orders.map(o => 
-      o.id === orderId ? { ...o, status: 'completed' as const, driverNotes, proofPhoto: 'uploaded' } : o
-    ));
+    setOrders(
+      orders.map((o) =>
+        o.id === orderId
+          ? {
+              ...o,
+              status: "completed" as const,
+              driverNotes,
+              proofPhoto: "uploaded",
+            }
+          : o,
+      ),
+    );
     setSelectedOrder(null);
-    setDriverNotes('');
+    setDriverNotes("");
     setProofUploaded(false);
   };
 
@@ -69,21 +102,24 @@ export default function DriverApp() {
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
           <Card className="border-blue-100">
             <CardContent className="p-4 text-center">
               <Package className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <p className="text-2xl font-bold text-gray-900">{orders.filter(o => o.status !== 'completed').length}</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {orders.filter((o) => o.status !== "completed").length}
+              </p>
               <p className="text-sm text-gray-600">Active Orders</p>
             </CardContent>
           </Card>
           <Card className="border-green-100">
             <CardContent className="p-4 text-center">
               <CheckCircle2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <p className="text-2xl font-bold text-gray-900">{orders.filter(o => o.status === 'completed').length}</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {orders.filter((o) => o.status === "completed").length}
+              </p>
               <p className="text-sm text-gray-600">Completed</p>
             </CardContent>
           </Card>
@@ -98,26 +134,43 @@ export default function DriverApp() {
 
         {/* Orders List */}
         <div>
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Today's Orders</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">
+            Today's Orders
+          </h2>
           <div className="space-y-4">
             {orders.map((order) => (
-              <Card key={order.id} className="border-blue-100 hover:shadow-lg transition-shadow">
+              <Card
+                key={order.id}
+                className="border-blue-100 hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-bold text-lg text-gray-900">Order #{order.id}</h3>
+                      <h3 className="font-bold text-lg text-gray-900">
+                        Order #{order.id}
+                      </h3>
                       <p className="text-sm text-gray-600">
-                        {order.items.reduce((sum, item) => sum + item.quantity, 0)} gallons
+                        {order.items.reduce(
+                          (sum, item) => sum + item.quantity,
+                          0,
+                        )}{" "}
+                        gallons
                       </p>
                     </div>
-                    <Badge className={
-                      order.status === 'completed' ? 'bg-green-600' :
-                      order.status === 'en-route' ? 'bg-blue-600' :
-                      'bg-yellow-600'
-                    }>
-                      {order.status === 'driver-assigned' ? 'New Order' :
-                       order.status === 'en-route' ? 'En Route' :
-                       'Completed'}
+                    <Badge
+                      className={
+                        order.status === "completed"
+                          ? "bg-green-600"
+                          : order.status === "en-route"
+                            ? "bg-blue-600"
+                            : "bg-yellow-600"
+                      }
+                    >
+                      {order.status === "driver-assigned"
+                        ? "New Order"
+                        : order.status === "en-route"
+                          ? "En Route"
+                          : "Completed"}
                     </Badge>
                   </div>
 
@@ -126,37 +179,40 @@ export default function DriverApp() {
                       <Package className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm text-gray-600">Pickup Location</p>
-                        <p className="font-semibold text-gray-900">{order.pickupLocation}</p>
+                        <p className="font-semibold text-gray-900">
+                          {order.pickupLocation}
+                        </p>
                       </div>
                     </div>
                     <div className="flex gap-3">
                       <MapPin className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm text-gray-600">Delivery Location</p>
-                        <p className="font-semibold text-gray-900">{order.deliveryLocation}</p>
+                        <p className="text-sm text-gray-600">
+                          Delivery Location
+                        </p>
+                        <p className="font-semibold text-gray-900">
+                          {order.deliveryLocation}
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex gap-2">
-                    {order.status === 'driver-assigned' && (
+                    {order.status === "driver-assigned" && (
                       <>
                         <Button
                           onClick={() => handleAcceptOrder(order.id)}
-                          className="flex-1 bg-blue-600 hover:bg-blue-700"
+                          className="flex-1 hover:bg-blue-700 bg-[#f59e0b]"
                         >
                           Accept Order
                         </Button>
-                        <Button
-                          variant="outline"
-                          className="flex-1"
-                        >
+                        <Button variant="outline" className="flex-1">
                           <Navigation className="mr-2 h-4 w-4" />
                           Navigate
                         </Button>
                       </>
                     )}
-                    {order.status === 'en-route' && (
+                    {order.status === "en-route" && (
                       <Button
                         onClick={() => setSelectedOrder(order)}
                         className="w-full bg-green-600 hover:bg-green-700"
@@ -164,10 +220,12 @@ export default function DriverApp() {
                         Complete Delivery
                       </Button>
                     )}
-                    {order.status === 'completed' && (
+                    {order.status === "completed" && (
                       <div className="w-full text-center py-2 bg-green-50 rounded-lg">
                         <CheckCircle2 className="h-5 w-5 text-green-600 inline mr-2" />
-                        <span className="text-green-700 font-semibold">Completed</span>
+                        <span className="text-green-700 font-semibold">
+                          Completed
+                        </span>
                       </div>
                     )}
                   </div>
@@ -186,8 +244,12 @@ export default function DriverApp() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="font-semibold text-gray-900 mb-2">Order #{selectedOrder.id}</p>
-                  <p className="text-sm text-gray-600">{selectedOrder.deliveryLocation}</p>
+                  <p className="font-semibold text-gray-900 mb-2">
+                    Order #{selectedOrder.id}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    {selectedOrder.deliveryLocation}
+                  </p>
                 </div>
 
                 <div>
@@ -202,7 +264,9 @@ export default function DriverApp() {
                     {proofUploaded ? (
                       <div className="text-center">
                         <CheckCircle2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                        <p className="text-green-600 font-semibold">Photo Uploaded</p>
+                        <p className="text-green-600 font-semibold">
+                          Photo Uploaded
+                        </p>
                       </div>
                     ) : (
                       <div className="text-center">
