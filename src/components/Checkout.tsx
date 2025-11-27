@@ -36,7 +36,7 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
       {/* Header */}
       <div className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 py-4">
@@ -56,10 +56,10 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
 
       <div className="max-w-3xl mx-auto px-4 py-6 pb-32">
         {/* Delivery Address */}
-        <Card className="mb-6 border-blue-100">
+        <Card className="mb-6 border-orange-100">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-blue-600" />
+              <MapPin className="h-5 w-5 text-orange-600" />
               Delivery Address
             </CardTitle>
           </CardHeader>
@@ -73,7 +73,7 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
         </Card>
 
         {/* Order Summary */}
-        <Card className="mb-6 border-blue-100">
+        <Card className="mb-6 border-orange-100">
           <CardHeader>
             <CardTitle className="text-lg">Order Summary</CardTitle>
           </CardHeader>
@@ -112,21 +112,21 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
               <Separator />
               <div className="flex justify-between text-lg font-bold text-gray-900">
                 <span>Total</span>
-                <span className="text-blue-600">Rp {total.toLocaleString('id-ID')}</span>
+                <span className="text-orange-600">Rp {total.toLocaleString('id-ID')}</span>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Payment Method */}
-        <Card className="border-blue-100">
+        <Card className="border-orange-100">
           <CardHeader>
             <CardTitle className="text-lg">Payment Method</CardTitle>
           </CardHeader>
           <CardContent>
             <RadioGroup value={paymentMethod} onValueChange={(value) => setPaymentMethod(value as PaymentMethod)}>
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 border rounded-lg p-4 hover:bg-blue-50 transition-colors cursor-pointer">
+                <div className="flex items-center space-x-3 border rounded-lg p-4 hover:bg-orange-50 transition-colors cursor-pointer">
                   <RadioGroupItem value="cash" id="cash" />
                   <Label htmlFor="cash" className="flex items-center gap-3 flex-1 cursor-pointer">
                     <div className="bg-green-100 p-2 rounded-lg">
@@ -139,11 +139,11 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
                   </Label>
                 </div>
 
-                <div className="flex items-center space-x-3 border rounded-lg p-4 hover:bg-blue-50 transition-colors cursor-pointer">
+                <div className="flex items-center space-x-3 border rounded-lg p-4 hover:bg-orange-50 transition-colors cursor-pointer">
                   <RadioGroupItem value="e-wallet" id="e-wallet" />
                   <Label htmlFor="e-wallet" className="flex items-center gap-3 flex-1 cursor-pointer">
-                    <div className="bg-blue-100 p-2 rounded-lg">
-                      <CreditCard className="h-5 w-5 text-blue-600" />
+                    <div className="bg-orange-100 p-2 rounded-lg">
+                      <CreditCard className="h-5 w-5 text-orange-600" />
                     </div>
                     <div>
                       <p className="font-semibold">E-Wallet</p>
@@ -152,7 +152,7 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
                   </Label>
                 </div>
 
-                <div className="flex items-center space-x-3 border rounded-lg p-4 hover:bg-blue-50 transition-colors cursor-pointer">
+                <div className="flex items-center space-x-3 border rounded-lg p-4 hover:bg-orange-50 transition-colors cursor-pointer">
                   <RadioGroupItem value="bank-transfer" id="bank-transfer" />
                   <Label htmlFor="bank-transfer" className="flex items-center gap-3 flex-1 cursor-pointer">
                     <div className="bg-purple-100 p-2 rounded-lg">
@@ -175,7 +175,7 @@ export default function Checkout({ items, onBack, onConfirmOrder }: CheckoutProp
         <div className="max-w-3xl mx-auto">
           <Button
             onClick={handleConfirmOrder}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white h-14 text-lg font-semibold rounded-xl shadow-lg"
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white h-14 text-lg font-semibold rounded-xl shadow-lg"
           >
             Confirm Order - Rp {total.toLocaleString('id-ID')}
           </Button>

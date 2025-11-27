@@ -63,7 +63,7 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-3xl mx-auto px-4 py-4">
@@ -74,16 +74,16 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
 
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-6">
         {/* Map Placeholder */}
-        <Card className="overflow-hidden border-blue-100">
-          <div className="relative h-64 bg-gradient-to-br from-blue-100 via-blue-50 to-green-50">
+        <Card className="overflow-hidden border-orange-100">
+          <div className="relative h-64 bg-gradient-to-br from-orange-100 via-orange-50 to-green-50">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <Navigation className="h-16 w-16 text-blue-600 mx-auto mb-2 animate-pulse" />
+                <Navigation className="h-16 w-16 text-orange-600 mx-auto mb-2 animate-pulse" />
                 <p className="text-sm text-gray-600">Live tracking map</p>
               </div>
             </div>
             {/* Mock location markers */}
-            <div className="absolute top-1/4 left-1/3 bg-blue-600 rounded-full p-2 shadow-lg animate-bounce">
+            <div className="absolute top-1/4 left-1/3 bg-orange-600 rounded-full p-2 shadow-lg animate-bounce">
               <MapPin className="h-5 w-5 text-white" />
             </div>
             <div className="absolute bottom-1/4 right-1/3 bg-green-600 rounded-full p-2 shadow-lg">
@@ -93,11 +93,11 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
         </Card>
 
         {/* ETA Card */}
-        <Card className="border-blue-100 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <Card className="border-orange-100 bg-gradient-to-r from-blue-600 to-orange-700 text-white">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm mb-1">Estimated Arrival</p>
+                <p className="text-orange-100 text-sm mb-1">Estimated Arrival</p>
                 <p className="text-3xl font-bold">{estimatedTime} mins</p>
               </div>
               <div className="bg-white/20 backdrop-blur-sm p-4 rounded-full">
@@ -108,10 +108,10 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
         </Card>
 
         {/* Driver Info */}
-        <Card className="border-blue-100">
+        <Card className="border-orange-100">
           <CardContent className="p-6">
             <div className="flex items-center gap-4 mb-4">
-              <Avatar className="h-16 w-16 border-2 border-blue-200">
+              <Avatar className="h-16 w-16 border-2 border-orange-200">
                 <AvatarImage src={mockDriver.photo} alt={mockDriver.name} />
                 <AvatarFallback>{mockDriver.name.charAt(0)}</AvatarFallback>
               </Avatar>
@@ -136,7 +136,7 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
         </Card>
 
         {/* Status Timeline */}
-        <Card className="border-blue-100">
+        <Card className="border-orange-100">
           <CardContent className="p-6">
             <h3 className="font-bold text-lg text-gray-900 mb-4">Delivery Status</h3>
             <div className="space-y-4">
@@ -150,9 +150,9 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
                       <div
                         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                           isCompleted
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-orange-600 text-white'
                             : 'bg-gray-200 text-gray-400'
-                        } ${isCurrent ? 'ring-4 ring-blue-200 scale-110' : ''}`}
+                        } ${isCurrent ? 'ring-4 ring-orange-200 scale-110' : ''}`}
                       >
                         {isCompleted ? (
                           <div className="w-3 h-3 bg-white rounded-full" />
@@ -163,7 +163,7 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
                       {index < statusSteps.length - 1 && (
                         <div
                           className={`w-0.5 h-12 ${
-                            isCompleted ? 'bg-blue-600' : 'bg-gray-200'
+                            isCompleted ? 'bg-orange-600' : 'bg-gray-200'
                           }`}
                         />
                       )}
@@ -178,7 +178,7 @@ export default function OrderTracking({ order, onOrderComplete }: OrderTrackingP
                           {step.label}
                         </p>
                         {isCurrent && (
-                          <Badge className="bg-blue-600 text-white">Current</Badge>
+                          <Badge className="bg-orange-600 text-white">Current</Badge>
                         )}
                       </div>
                       {step.time && (

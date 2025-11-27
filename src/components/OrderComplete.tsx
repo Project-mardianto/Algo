@@ -117,7 +117,7 @@ export default function OrderComplete({ order, onNewOrder }: OrderCompleteProps)
             <Button
               onClick={handleDownloadPDF}
               variant="outline"
-              className="h-14 border-2 border-blue-600 text-blue-600 hover:bg-blue-50"
+              className="h-14 border-2 border-orange-600 text-orange-600 hover:bg-orange-50"
             >
               <Download className="mr-2 h-5 w-5" />
               Download PDF

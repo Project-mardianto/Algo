@@ -40,12 +40,12 @@ export default function ProductSelection({ onProceedToCheckout }: ProductSelecti
   const totalItems = getTotalItems();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white pb-24">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white pb-24">
       {/* Header */}
       <div className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="bg-blue-600 p-2 rounded-xl">
+            <div className="bg-orange-600 p-2 rounded-xl">
               <Droplets className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -81,7 +81,7 @@ export default function ProductSelection({ onProceedToCheckout }: ProductSelecti
           <div className="max-w-7xl mx-auto">
             <Button
               onClick={handleCheckout}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white h-14 text-lg font-semibold rounded-xl shadow-lg"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white h-14 text-lg font-semibold rounded-xl shadow-lg"
             >
               <ShoppingCart className="mr-2 h-5 w-5" />
               Proceed to Checkout ({totalItems} {totalItems === 1 ? 'item' : 'items'})
