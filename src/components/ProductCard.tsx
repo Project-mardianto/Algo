@@ -26,18 +26,6 @@ export default function ProductCard({
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-          <span className="text-xs font-semibold text-blue-600">
-            {product.type}
-          </span>
-        </div>
-      </div>
       <CardContent className="p-4">
         <h3 className="font-bold text-lg text-gray-900 mb-1">{product.name}</h3>
         <p className="text-sm text-gray-600 mb-3 line-clamp-2">
