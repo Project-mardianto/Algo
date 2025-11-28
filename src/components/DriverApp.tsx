@@ -88,7 +88,7 @@ export default function DriverApp() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="text-white shadow-lg bg-amber-500">
+      <div className="text-white shadow-lg bg-[#ea580c]">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
             <Avatar className="h-12 w-12 border-2 border-white">
@@ -202,7 +202,7 @@ export default function DriverApp() {
                       <>
                         <Button
                           onClick={() => handleAcceptOrder(order.id)}
-                          className="flex-1 hover:bg-blue-700 bg-amber-500"
+                          className="flex-1 hover:bg-blue-700 bg-[#ea580c]"
                         >
                           Accept Order
                         </Button>

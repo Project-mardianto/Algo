@@ -1,14 +1,17 @@
 import { Home, ShoppingBag, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface BottomNavProps {
   activeTab?: 'home' | 'orders' | 'profile';
 }
 
 export default function BottomNav({ activeTab = 'home' }: BottomNavProps) {
+  const navigate = useNavigate();
+  
   const tabs = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'orders', label: 'Orders', icon: ShoppingBag },
-    { id: 'profile', label: 'Profile', icon: User }
+    { id: 'home', label: 'Home', icon: Home, path: '/' },
+    { id: 'orders', label: 'Orders', icon: ShoppingBag, path: '/orders' },
+    { id: 'profile', label: 'Profile', icon: User, path: '/profile' }
   ];
 
   return (
@@ -22,11 +25,12 @@ export default function BottomNav({ activeTab = 'home' }: BottomNavProps) {
             return (
               <button
                 key={tab.id}
+                onClick={() => navigate(tab.path)}
                 className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
-                  isActive ? 'text-blue-600' : 'text-gray-400 hover:text-gray-600'
+                  isActive ? 'text-orange-600' : 'text-gray-400 hover:text-gray-600'
                 }`}
               >
-                <Icon className={`h-6 w-6 mb-1 ${isActive ? 'fill-blue-100' : ''}`} />
+                <Icon className={`h-6 w-6 mb-1 ${isActive ? 'fill-orange-100' : ''}`} />
                 <span className={`text-xs font-medium ${isActive ? 'font-semibold' : ''}`}>
                   {tab.label}
                 </span>

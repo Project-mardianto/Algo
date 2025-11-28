@@ -1,8 +1,9 @@
-import { User, MapPin, Phone, Mail, Bell, CreditCard, LogOut, ChevronRight } from "lucide-react";
+import { MapPin, Bell, CreditCard, LogOut, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import BottomNav from "./BottomNav";
 
 export default function Profile() {
   return (
@@ -109,6 +110,7 @@ export default function Profile() {
           Logout
         </Button>
       </div>
+      <BottomNav activeTab="profile" />
     </div>
   );
 }

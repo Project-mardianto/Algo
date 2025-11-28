@@ -41,7 +41,7 @@ export default function ProductCard({
           {quantity === 0 ? (
             <Button
               onClick={handleIncrement}
-              className="hover:bg-blue-700 text-white px-6 bg-amber-500"
+              className="hover:bg-blue-700 text-white px-6 bg-[#ea580c]"
             >
               Add
             </Button>

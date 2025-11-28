@@ -2,6 +2,7 @@ import { Package, Clock, CheckCircle, XCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import BottomNav from "./BottomNav";
 
 interface Order {
   id: string;
@@ -112,6 +113,7 @@ export default function Orders() {
           })}
         </div>
       </div>
+      <BottomNav activeTab="orders" />
     </div>
   );
 }

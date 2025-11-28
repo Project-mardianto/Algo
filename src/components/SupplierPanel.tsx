@@ -153,7 +153,7 @@ export default function SupplierPanel() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="text-white shadow-lg bg-amber-500">
+      <div className="text-white shadow-lg bg-[#ea580c]">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
             <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl">
@@ -288,7 +288,7 @@ export default function SupplierPanel() {
                     {order.preparationStatus === "pending" && (
                       <Button
                         onClick={() => handleStartPreparation(order.id)}
-                        className="w-full hover:bg-blue-700 bg-amber-500"
+                        className="w-full hover:bg-blue-700 bg-[#ea580c]"
                       >
                         <Package className="mr-2 h-4 w-4" />
                         Start Preparation
