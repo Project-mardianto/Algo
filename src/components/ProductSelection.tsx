@@ -3,8 +3,10 @@ import { products } from "@/data/products";
 import ProductCard from "./ProductCard";
 import BottomNav from "./BottomNav";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Droplets } from "lucide-react";
+import { ShoppingCart, Droplets, Bell, LogIn, UserPlus } from "lucide-react";
 import { CartItem } from "@/types/order";
+import { useNavigate } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 
 interface ProductSelectionProps {
   onProceedToCheckout: (items: CartItem[]) => void;
@@ -13,7 +15,9 @@ interface ProductSelectionProps {
 export default function ProductSelection({
   onProceedToCheckout,
 }: ProductSelectionProps) {
+  const navigate = useNavigate();
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const unreadNotifications = 2; // Mock unread count
 
   const handleQuantityChange = (productId: string, quantity: number) => {
     setQuantities((prev) => ({
@@ -46,15 +50,52 @@ export default function ProductSelection({
       {/* Header */}
       <div className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-[#ea580c]">
-              <Droplets className="h-6 w-6 text-white" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-[#ea580c]">
+                <Droplets className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">Algoplus</h1>
+                <p className="text-sm text-gray-600">
+                  Fresh water delivered to your door
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Algoplus</h1>
-              <p className="text-sm text-gray-600">
-                Fresh water delivered to your door
-              </p>
+            
+            {/* Right Side Actions */}
+            <div className="flex items-center gap-2">
+              {/* Login/Register Buttons */}
+              <Button
+                onClick={() => navigate("/login")}
+                variant="ghost"
+                size="sm"
+                className="text-gray-700 hover:text-orange-600"
+              >
+                <LogIn className="h-4 w-4 mr-1" />
+                Login
+              </Button>
+              <Button
+                onClick={() => navigate("/register")}
+                size="sm"
+                className="bg-orange-600 hover:bg-orange-700 text-white"
+              >
+                <UserPlus className="h-4 w-4 mr-1" />
+                Register
+              </Button>
+              
+              {/* Notification Icon */}
+              <button
+                onClick={() => navigate("/notifications")}
+                className="relative p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <Bell className="h-6 w-6 text-gray-700" />
+                {unreadNotifications > 0 && (
+                  <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-orange-600 text-white text-xs">
+                    {unreadNotifications}
+                  </Badge>
+                )}
+              </button>
             </div>
           </div>
         </div>
