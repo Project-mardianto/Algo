@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   MapPin,
   Bell,
@@ -7,12 +8,12 @@ import {
   LogIn,
   UserPlus,
 } from "lucide-react";
-
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import BottomNav from "./BottomNav";
+
 export default function Profile() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white pb-20">

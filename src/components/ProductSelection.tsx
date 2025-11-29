@@ -84,14 +84,6 @@ export default function ProductSelection({
                 <LogIn className="h-4 w-4 mr-1" />
                 Login
               </Button>
-              <Button
-                onClick={() => navigate("/register")}
-                size="sm"
-                className="bg-orange-600 hover:bg-orange-700 text-white"
-              >
-                <UserPlus className="h-4 w-4 mr-1" />
-                Register
-              </Button>
 
               {/* Notification Icon */}
               <button
