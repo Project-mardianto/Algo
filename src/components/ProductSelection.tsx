@@ -1,9 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { products } from "@/data/products";
 import ProductCard from "./ProductCard";
 import BottomNav from "./BottomNav";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Droplets, Bell, LogIn, UserPlus } from "lucide-react";
+import {
+  ShoppingCart,
+  Droplets,
+  Bell,
+  LogIn,
+  UserPlus,
+  LogOutIcon,
+  LogInIcon,
+  BellIcon,
+} from "lucide-react";
 import { CartItem } from "@/types/order";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
@@ -62,7 +71,7 @@ export default function ProductSelection({
                 </p>
               </div>
             </div>
-            
+
             {/* Right Side Actions */}
             <div className="flex items-center gap-2">
               {/* Login/Register Buttons */}
@@ -83,7 +92,7 @@ export default function ProductSelection({
                 <UserPlus className="h-4 w-4 mr-1" />
                 Register
               </Button>
-              
+
               {/* Notification Icon */}
               <button
                 onClick={() => navigate("/notifications")}
@@ -122,6 +131,7 @@ export default function ProductSelection({
           ))}
         </div>
       </div>
+
       {/* Floating Checkout Button */}
       {totalItems > 0 ? (
         <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg p-4 z-20">

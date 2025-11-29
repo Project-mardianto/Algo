@@ -41,30 +41,30 @@ export default function ProductCard({
           {quantity === 0 ? (
             <Button
               onClick={handleIncrement}
-              className="hover:bg-blue-700 text-white px-6 bg-[#ea580c]"
+              className="hover:bg-orange-700 text-white px-6 bg-[#ea580c]"
             >
               Add
             </Button>
           ) : (
-            <div className="flex items-center gap-2 bg-blue-50 rounded-lg p-1">
+            <div className="flex items-center gap-2 bg-black-50 rounded-lg p-1">
               <Button
                 size="icon"
                 variant="ghost"
                 onClick={handleDecrement}
-                className="h-8 w-8 rounded-md hover:bg-blue-100"
+                className="h-8 w-8 rounded-md hover:bg-black-100"
               >
-                <Minus className="h-4 w-4 text-blue-600" />
+                <Minus className="h-4 w-4 text-black-600" />
               </Button>
-              <span className="font-bold text-blue-600 w-8 text-center">
+              <span className="font-bold text-black-600 w-8 text-center">
                 {quantity}
               </span>
               <Button
                 size="icon"
                 variant="ghost"
                 onClick={handleIncrement}
-                className="h-8 w-8 rounded-md hover:bg-blue-100"
+                className="h-8 w-8 rounded-md hover:bg-black-100"
               >
-                <Plus className="h-4 w-4 text-blue-600" />
+                <Plus className="h-4 w-4 text-black-600" />
               </Button>
             </div>
           )}

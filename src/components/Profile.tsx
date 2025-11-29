@@ -1,10 +1,18 @@
-import { MapPin, Bell, CreditCard, LogOut, ChevronRight } from "lucide-react";
+import {
+  MapPin,
+  Bell,
+  CreditCard,
+  LogOut,
+  ChevronRight,
+  LogIn,
+  UserPlus,
+} from "lucide-react";
+
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import BottomNav from "./BottomNav";
-
 export default function Profile() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white pb-20">
@@ -36,7 +44,9 @@ export default function Profile() {
                 <MapPin className="w-5 h-5 text-gray-600" />
                 <div className="text-left">
                   <p className="font-medium">Delivery Address</p>
-                  <p className="text-sm text-gray-500">Jl. Sudirman No. 123, Jakarta</p>
+                  <p className="text-sm text-gray-500">
+                    Jl. Sudirman No. 123, Jakarta
+                  </p>
                 </div>
               </div>
               <ChevronRight className="w-5 h-5 text-gray-400" />
@@ -47,7 +57,9 @@ export default function Profile() {
                 <CreditCard className="w-5 h-5 text-gray-600" />
                 <div className="text-left">
                   <p className="font-medium">Payment Methods</p>
-                  <p className="text-sm text-gray-500">Manage your payment options</p>
+                  <p className="text-sm text-gray-500">
+                    Manage your payment options
+                  </p>
                 </div>
               </div>
               <ChevronRight className="w-5 h-5 text-gray-400" />
@@ -58,11 +70,41 @@ export default function Profile() {
                 <Bell className="w-5 h-5 text-gray-600" />
                 <div className="text-left">
                   <p className="font-medium">Notifications</p>
-                  <p className="text-sm text-gray-500">Push notifications for orders</p>
+                  <p className="text-sm text-gray-500">
+                    Push notifications for orders
+                  </p>
                 </div>
               </div>
               <Switch defaultChecked />
             </div>
+          </Card>
+        </div>
+
+        {/*  Account Login / Register */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-3">
+            Account Login / Register
+          </h3>
+          <Card className="divide-y">
+            <button className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <div className="flex items-center gap-3">
+                <LogIn className="w-5 h-5 text-gray-600" />
+                <div className="text-left">
+                  <p className="font-medium">Login</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
+            </button>
+
+            <button className="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <div className="flex items-center gap-3">
+                <UserPlus className="w-5 h-5 text-gray-600" />
+                <div className="text-left">
+                  <p className="font-medium">Register</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
+            </button>
           </Card>
         </div>
 
